@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .tags{
+      background-color: #0abde3;
+      display: inline-flex;
+      width:10px;
+      height:10px;
+      border-radius: 100%;
+      padding: 8px;
+      margin: 4px;
+  }
+  .tags:nth-child(6){
+      background-color:#252B42 ;
+  }
+  .tags:nth-child(3){
+      background-color:#23A6F0 ;
+  }
+  .tags:nth-child(4){
+      background-color: #23856D;
+  }
+  .tags:nth-child(5){
+      background-color: #E77C40;
+  }
+}
