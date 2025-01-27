@@ -9,14 +9,14 @@ import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
+import { title } from "process";
+import Swal from "sweetalert2"
+import { addToCart } from "../actions/action";
+
 export default function ProductCrousel() {
   // Select the first 8 products from the list
   const [product, setProduct] = useState<Product[]>([])
-  const [cart, setCart] = useState <Product[]>([]);
-  const addToCart = (product : Product) => {
-            setCart((preCart) => [...preCart, product] );
-            alert(`${product.title} has been added to your Cart!`);
-        } ;
+
   useEffect(() =>{
     async function fetchproduct(){
       const fetchedProduct : Product [] = await client.fetch(allProducts)
@@ -24,6 +24,18 @@ export default function ProductCrousel() {
     }
     fetchproduct()
   },[])
+  const handleAddtoCart = (e : React.MouseEvent, product :Product)=>{
+    e.preventDefault();
+    Swal.fire({
+      position : "top-right",
+      icon : "success",
+      title : `${product.title} added to your cart`,
+      showConfirmButton : false,
+      timer : 1000
+    })
+    addToCart(product)
+   
+  }
   return (
 
     <div>
@@ -69,7 +81,7 @@ export default function ProductCrousel() {
                    <div className="grid grid-cols-2 gap-2 ">
                    
                    <Button className=" mt-4 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
-                  //  onClick={() => addToCart(product)}
+                   onClick={(e) => handleAddtoCart(e,product)}
                    >
                     Add To Cart
                    </Button>
