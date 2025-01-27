@@ -52,11 +52,11 @@ export default function ProductCrousel() {
                    <p className="text-sm text-[#737373] font-bold text-clip line-clamp-2">{product.description}</p>
                    <div className="flex gap-2 mt-2 justify-center">
                      <span className="text-black font-bold text-sm">
-                       ${product.price}</span>
-                       {product.discountPercentage > 0 && (
-                        <span className="text-green-600 font-semibold text-sm">{product.discountPercentage}% OFF</span>
+                       $ {product.price}</span>
+                       {product.dicountPercentage > 0 && (
+                        <span className="text-green-600 font-semibold text-sm">{product.dicountPercentage}% OFF</span>
 
-                       )}
+                        )} 
                      
                    </div>
                    <div className="mt-2 flex flex-wrap  gap-2">
@@ -69,7 +69,8 @@ export default function ProductCrousel() {
                    <div className="grid grid-cols-2 gap-2 ">
                    
                    <Button className=" mt-4 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
-                   onClick={() => addToCart(product)}>
+                  //  onClick={() => addToCart(product)}
+                   >
                     Add To Cart
                    </Button>
                    <Link href={`/product/${product.slug.current}`}>
@@ -94,7 +95,7 @@ export default function ProductCrousel() {
     </div>
 
  {/* card summary */}
-    <div className='mt-8 bg-slate-100 p-6 rounded-lg shadow-md'>
+    {/* <div className='mt-8 bg-slate-100 p-6 rounded-lg shadow-md'>
         <h2 className='text-lg font-black text-red-800'>Cart Summary</h2>
         {cart.length > 0 ?(
              <ul className='space-y-4'>
@@ -120,6 +121,6 @@ export default function ProductCrousel() {
         ) :(
             <p className='text-black text-center'> Your Cart is Empty Please Add Products</p>
         )};
-    </div> 
+    </div>  */}
     </div>
   )}

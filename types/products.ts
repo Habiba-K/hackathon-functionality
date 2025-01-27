@@ -11,7 +11,7 @@ export interface Product {
     };
     price: number;
     tags: string[];
-    discountPercentage: number;
+    dicountPercentage : number;
     slug: {
       _type: "slug";
       current: string;

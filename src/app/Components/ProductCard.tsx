@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span className="text-[#BDBDBD] font-bold text-sm">
               {product.price}
             </span>
-            <span className="text-green-600 font-semibold text-sm">{product.discountPercentage}</span>
+            <span className="text-green-600 font-semibold text-sm">{product.dicountPercentage}</span>
           </div>
          <Tags></Tags>
         </div>

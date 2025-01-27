@@ -50,8 +50,8 @@ export default function DisplayedProductsHome() {
                    <div className="flex gap-2 mt-2 justify-center">
                      <span className="text-black font-bold text-sm">
                        ${product.price}</span>
-                       {product.discountPercentage > 0 && (
-                        <span className="text-green-600 font-semibold text-sm">{product.discountPercentage}% OFF</span>
+                       {product.dicountPercentage > 0 && (
+                        <span className="text-green-600 font-semibold text-sm">{product.dicountPercentage}% OFF</span>
 
                        )}
                      
