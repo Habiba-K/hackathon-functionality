@@ -1,3 +1,4 @@
+
 import React from "react";
 import Topbar from "../Components/topbar";
 import Navbar from "../Navbar/Navbar";
@@ -5,12 +6,17 @@ import Image from "next/image";
 import Clients from "../Components/Clients";
 import Arrow from "../ProductDetails/arrow";
 import ProductCrousel from "../Components/ProductCrousel";
+import NavAfterLogin from "../NavAfterLogin/page";
 
 const page = () => {
+ 
+
+ 
+
   return (
     <div>
       <Topbar bgColor="bg-[#23856D]"></Topbar>
-      <Navbar /> 
+      <NavAfterLogin  /> 
       {/* Shop Section */}
       <div className="mt-7 md:mt-9 ">
         {/* category */}

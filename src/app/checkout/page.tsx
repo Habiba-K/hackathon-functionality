@@ -9,6 +9,7 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import { CgChevronRight } from "react-icons/cg";
 import { Product } from "../../../types/products";
+import StripePayment from "../api/payment-intent/StripePayment";
 
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -72,6 +73,7 @@ export default function CheckoutPage() {
 
   const handlePlaceOrder = () => {
     if (validateForm()) {
+      window.location.href = `/payment?totaldiscountedprice=${totaldiscountedprice}`;
       localStorage.removeItem("appliedDiscount");
     }
   };
@@ -89,7 +91,7 @@ export default function CheckoutPage() {
               Cart
             </Link>
             <CgChevronRight className="w-4 h-4 text-[#666666]" />
-            <span className="text-sm">Checkout</span>
+            <span className="text-sm"   >Checkout</span>
           </nav>
         </div>
       </div>
@@ -133,13 +135,13 @@ export default function CheckoutPage() {
             )}
             <div className="text-right pt-4">
               <p className="text-sm">
-                Subtotal: <span className="font-medium">${total}</span>
+                Subtotal:  <span className="font-medium"> $ {(total ? parseFloat(total) : 0).toFixed(2)}</span>
               </p>
               <p className="text-sm">
-                Discount: <span className="font-medium">-${totalDiscount}</span>
+                Discount:  <span className="font-medium"> - $ {(totalDiscount ? parseFloat(totalDiscount) : 0).toFixed(2)}</span>
               </p>
               <p className="text-lg font-semibold">
-                Total: ${totaldiscountedprice}
+                Total:  $ {(totaldiscountedprice ? parseFloat(totaldiscountedprice) : 0).toFixed(2)}
               </p>
             </div>
           </div>
@@ -238,6 +240,7 @@ export default function CheckoutPage() {
                 <p className="text-sm text-red-500">Email is required.</p>
               )}
             </div>
+           
             <button
               className="w-full h-12 bg-blue-500 hover:bg-blue-700 text-white"
               onClick={handlePlaceOrder}

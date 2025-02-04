@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -7,15 +8,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { title } from "process";
 
 import { Heart, MenuIcon, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { MdPersonOutline } from "react-icons/md";
+import { ClerkProvider, SignOutButton } from "@clerk/nextjs";
 
 const Navbar = () => {
+  const [cart,setCart] = useState({});
+  const [subtotal, setsubtotal] = useState(0);
+
   return (
     <nav className="w-full h-[20px] p-4 ">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between">
@@ -43,11 +47,19 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden md:flex gap-3 text-[#23A6F0]  text-sm">
-          <Button  color={"blue"} variant={"outline"} className="rounded-full mr-10 font-bold">
-            <MdPersonOutline  />
-            Login / Register
-          </Button>
+        <div className="hidden md:flex gap-3 text-[#23A6F0]  text-sm items-center">
+          <MdPersonOutline  />
+          <a href="/login"  className="rounded-full  font-bold">
+            
+            Login 
+          </a>
+          <a href="/signup"  className="rounded-full mr-10 font-bold">
+            
+            / Register
+          </a>
+          {/* <ClerkProvider> */}
+        
+          {/* </ClerkProvider> */}
 
           <Button color={"blue"} variant={"outline"} size={"icon"} className="rounded-full ">
             <FiSearch />

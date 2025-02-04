@@ -7,6 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { ArrowRight, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -30,14 +31,10 @@ const NavAfterLogin = () => {
             Contact
           </Link>
         </div>
+       <UserButton showName></UserButton>
+        
 
         <div className="hidden md:flex gap-3 text-sm">
-          <Button
-            variant={"outline"}
-            className="rounded text-[#23A6F0] bg-white mr-10 font-bold"
-          >
-            Login
-          </Button>
           <Button
             variant={"outline"}
             className="rounded bg-[#23A6F0] text-white mr-10 font-bold"
